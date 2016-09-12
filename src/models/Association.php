@@ -11,11 +11,18 @@ use yii\db\ActiveRecord;
  * @property $user_id2 string
  * @property $relation string
  * @property $context_id int
+ *
+ * @property $context Context
  */
 class Association extends ActiveRecord
 {
-    public function getDb()
+    public static function getDb()
     {
         return Yii::$app->get('dbAnalytics');
+    }
+
+    public function getContext()
+    {
+        return $this->hasOne(Context::class, ['id' => 'context_id']);
     }
 }

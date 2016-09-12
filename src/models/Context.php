@@ -13,7 +13,7 @@ use yii\db\ActiveRecord;
  */
 class Context extends ActiveRecord
 {
-    public function getDb()
+    public static function getDb()
     {
         return Yii::$app->get('dbAnalytics');
     }

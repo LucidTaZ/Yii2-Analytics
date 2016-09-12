@@ -12,10 +12,11 @@ use yii\db\ActiveRecord;
  * @property $context_id int
  *
  * @property $traitsArray array
+ * @property $context Context
  */
 class Identity extends ActiveRecord
 {
-    public function getDb()
+    public static function getDb()
     {
         return Yii::$app->get('dbAnalytics');
     }
@@ -31,5 +32,10 @@ class Identity extends ActiveRecord
             return null;
         }
         return json_decode($this->traits, true);
+    }
+
+    public function getContext()
+    {
+        return $this->hasOne(Context::class, ['id' => 'context_id']);
     }
 }

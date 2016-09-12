@@ -13,10 +13,11 @@ use yii\db\ActiveRecord;
  * @property $context_id int
  *
  * @property $propertiesArray array
+ * @property $context Context
  */
 class Event extends ActiveRecord
 {
-    public function getDb()
+    public static function getDb()
     {
         return Yii::$app->get('dbAnalytics');
     }
@@ -32,5 +33,10 @@ class Event extends ActiveRecord
             return null;
         }
         return json_decode($this->properties, true);
+    }
+
+    public function getContext()
+    {
+        return $this->hasOne(Context::class, ['id' => 'context_id']);
     }
 }
