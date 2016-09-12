@@ -1,0 +1,27 @@
+{
+    "name": "lucidtaz/yii2-analytics",
+    "description": "Yii2 bindings for lucidtaz/analytics",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Thijs Zumbrink",
+            "email": "thijs@schalpoen.nl"
+        }
+    ],
+    "require": {
+        "php": ">=7.0.0",
+        "lucidtaz/analytics": "dev-master",
+        "yiisoft/yii2": "^2.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^5.5"
+    },
+    "minimum-stability": "stable",
+    "autoload": {
+        "psr-4": { "lucidtaz\\analytics\\yii2\\": "src/" }
+    },
+    "autoload-dev": {
+        "psr-4": { "lucidtaz\\analytics\\yii2\\tests\\": "tests/" }
+    }
+}
