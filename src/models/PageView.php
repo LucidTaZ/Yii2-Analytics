@@ -6,6 +6,7 @@ use Yii;
 use yii\db\ActiveRecord;
 
 /**
+ * @property $id int
  * @property $user_id string
  * @property $name string
  * @property $properties string
@@ -18,7 +19,7 @@ class PageView extends ActiveRecord
 {
     public static function getDb()
     {
-        return Yii::$app->get('dbAnalytics');
+        return Yii::$app->getModule('analytics')->db;
     }
 
     public function setPropertiesArray(array $propertiesArray)

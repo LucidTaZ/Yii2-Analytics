@@ -18,7 +18,7 @@ class Association extends ActiveRecord
 {
     public static function getDb()
     {
-        return Yii::$app->get('dbAnalytics');
+        return Yii::$app->getModule('analytics')->db;
     }
 
     public function getContext()
