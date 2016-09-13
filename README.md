@@ -34,3 +34,19 @@ Create the tables, during installation, by running the migration:
 ```
 php yii migrate --migrationPath=@vendor/lucidtaz/yii2-analytics/src/migrations
 ```
+
+FUNCTIONALITY
+-------------
+
+To easily track all pageviews of a Controller, use the PageviewBehavior:
+
+```php
+public function behaviors()
+{
+    return [
+        'pageview' => [
+            'class' => 'lucidtaz\analytics\yii2\behaviors\PageviewBehavior',
+        ],
+    ];
+}
+```

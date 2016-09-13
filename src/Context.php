@@ -8,6 +8,6 @@ class Context implements ContextInterface
 {
     public function get(): array
     {
-        return $GLOBALS;
+        return $_SERVER;
     }
 }
