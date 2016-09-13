@@ -4,7 +4,7 @@ namespace lucidtaz\analytics\yii2;
 
 use lucidtaz\analytics\StorageInterface;
 use lucidtaz\analytics\yii2\models\Association;
-use lucidtaz\analytics\yii2\models\Context;
+use lucidtaz\analytics\yii2\models\Context as ContextModel;
 use lucidtaz\analytics\yii2\models\Event;
 use lucidtaz\analytics\yii2\models\Identity;
 use lucidtaz\analytics\yii2\models\PageView;
@@ -60,7 +60,7 @@ class Storage implements StorageInterface
 
     private function insertContext(array $contextValues)
     {
-        $context = new Context();
+        $context = new ContextModel();
         $context->valuesArray = $contextValues;
         $context->insert();
         return $context;
