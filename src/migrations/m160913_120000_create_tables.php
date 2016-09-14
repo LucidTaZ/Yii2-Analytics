@@ -24,7 +24,7 @@ class m160913_120000_create_tables extends Migration
     {
         $this->createTable('{{%context}}', [
             'id' => $this->primaryKey(),
-            'values' => $this->string(),
+            'values' => $this->text(),
             'created' => $this->dateTime(),
         ]);
         $this->createTable('{{%identity}}', [

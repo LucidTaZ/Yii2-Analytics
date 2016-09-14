@@ -3,6 +3,7 @@
 namespace lucidtaz\analytics\yii2\behaviors;
 
 use lucidtaz\analytics\Analytics;
+use lucidtaz\analytics\yii2\models\Identity;
 use Yii;
 use yii\base\ActionEvent;
 use yii\base\Behavior;
@@ -26,18 +27,8 @@ class PageviewBehavior extends Behavior
         /* @var $request Request */
         $request = Yii::$app->request;
 
-        if (Yii::$app->user->isGuest) {
-            if (Yii::$app->session->isActive) {
-                $userId = 'guest_session_' . Yii::$app->session->id;
-            } else {
-                $userId = 'guest_ip_' . $request->userIP;
-            }
-        } else {
-            $userId = 'user_id_' . Yii::$app->user->identity->getId();
-        }
-
+        $userId = Identity::generateUserId();
         $pageName = $request->url;
-
         $properties = [
             'action' => $event->action->uniqueId,
         ];
