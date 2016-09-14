@@ -55,7 +55,7 @@ class Identity extends ActiveRecord
 
     public static function generateUserId()
     {
-        if (Yii::$app->user->isGuest) {
+        if (Yii::$app->user->getIsGuest()) { // Note: ->isGuest doesn't always work, see https://github.com/asinfotrack/yii2-audittrail/issues/5
             return static::generateUserIdForGuest();
         }
         return 'user_id_' . Yii::$app->user->identity->getId();
